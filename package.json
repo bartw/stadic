@@ -4,7 +4,7 @@
   "description": "A very basic React static site generator",
   "bin": "src/index.js",
   "scripts": {
-    "start": "babel-node src/index.js --html ./example/index.html --ouput ./public --pages ./example/pages"
+    "start": "npx ./src/index.js --html ./example/index.html --ouput ./public --pages ./example/pages"
   },
   "keywords": [
     "stadic",
@@ -17,13 +17,15 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.10.3",
-    "@babel/node": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
     "jsdom": "^16.2.2",
+    "kleur": "^4.0.2",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {}
 }
