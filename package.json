@@ -1,6 +1,6 @@
 {
   "name": "stadic",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A very basic React static site generator",
   "bin": "src/index.js",
   "scripts": {
