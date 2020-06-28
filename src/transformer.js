@@ -9,13 +9,17 @@ const transformPages = async ({ pagesPath, tempPath }) => {
   await fs.rmdir(tempPath, { recursive: true });
   await fs.mkdir(tempPath);
 
+  const extraNodeModules = path.resolve(__dirname, "..", "node_modules");
+
   return Promise.all(
     pages.map(
       async (page) =>
         new Promise((resolve, reject) => {
           const pagePath = path.resolve(pagesPath, page);
+
           webpack(
             {
+              mode: "production",
               entry: pagePath,
               output: {
                 path: path.resolve(tempPath),
@@ -24,12 +28,23 @@ const transformPages = async ({ pagesPath, tempPath }) => {
                 libraryExport: "default",
                 libraryTarget: "commonjs",
               },
+              resolve: {
+                modules: ["node_modules", extraNodeModules],
+              },
               module: {
                 rules: [
                   {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
-                    use: { loader: "babel-loader" },
+                    use: {
+                      loader: path.join(extraNodeModules, "babel-loader"),
+                      options: {
+                        presets: [
+                          path.join(extraNodeModules, "@babel/preset-env"),
+                          path.join(extraNodeModules, "@babel/preset-react"),
+                        ],
+                      },
+                    },
                   },
                 ],
               },
@@ -39,10 +54,11 @@ const transformPages = async ({ pagesPath, tempPath }) => {
                 console.log(
                   red(`Something went wrong when transforming ${bold(page)}.`)
                 );
-                reject();
+                console.log(stats.toJson());
+                return reject();
               }
               console.log(green(`Transformed ${bold(page)}.`));
-              resolve();
+              return resolve();
             }
           );
         })
