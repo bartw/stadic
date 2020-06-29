@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npx ./src/index.js --html ./example/index.html --output ./public --pages ./example/pages",
     "test": "jest --collectCoverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "stadic",
