@@ -1,3 +1,5 @@
+![stadic](https://github.com/bartw/stadic/workflows/stadic/badge.svg)
+
 # stadic
 
 A very basic React static site generator
