@@ -4,7 +4,9 @@
   "description": "A very basic React static site generator",
   "bin": "src/index.js",
   "scripts": {
-    "start": "npx ./src/index.js --html ./example/index.html --ouput ./public --pages ./example/pages"
+    "start": "npx ./src/index.js --html ./example/index.html --output ./public --pages ./example/pages",
+    "test": "jest --collectCoverage",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "stadic",
@@ -27,5 +29,7 @@
     "react-dom": "^16.13.1",
     "webpack": "^4.43.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
 }

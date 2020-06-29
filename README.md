@@ -8,7 +8,7 @@ A very basic React static site generator
 
 Check out the example code in the `example` folder.
 
-You can generate your static site using `npx stadic --html ./example/index.html --pages ./example/pages --ouput ./public`.
+You can generate your static site using `npx stadic --html ./example/index.html --pages ./example/pages --output ./public`.
 
 ## Backlog
 
@@ -16,6 +16,8 @@ You can generate your static site using `npx stadic --html ./example/index.html 
 - [x] Publish to npm
 - [ ] Documentation
 - [ ] Tests
+- [ ] ESLint
+- [ ] Husky
 - [ ] Routing
 - [ ] ES6
 - [ ] TypeScript
