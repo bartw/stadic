@@ -12,7 +12,6 @@ You can generate your static site using `npx stadic --html ./example/index.html 
 
 - [x] Generate html files
 - [x] Publish to npm
-- [ ] Publish to GitHub
 - [ ] Documentation
 - [ ] Tests
 - [ ] Routing
